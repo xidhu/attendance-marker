@@ -17,8 +17,8 @@ eg:
 
     // used to format the input %d indicates integer.
     roll no %d => roll no 45
-    %d		   => 45
-    rn%d	   => rn45
+    %d  => 45
+    rn%d   => rn45
     
 
 
