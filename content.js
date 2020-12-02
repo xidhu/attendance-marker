@@ -11,6 +11,7 @@ const processData = (request) => {
             sortedNumbers.push(e);
         
 
+
     });
     return sortedNumbers.sort((a, b) => a - b);
 };
@@ -25,7 +26,7 @@ const isValid = (request) => {
 };
 
 const findData = (request) => {
-    
+
     if (isValid(request)) {
         var msgs = document.getElementsByClassName("oIy2qc");
         dataset = [].slice.call(msgs).map((e) => {
@@ -42,21 +43,27 @@ const findData = (request) => {
 };
 const saveAsCsv = (data, request) => {
     let time = new Date().toLocaleString();
+    let present_no = 0;
+    let absent_no = 0;
     let csvContent = "data:text/csv;charset=utf-8,Attendance\n" + request.details + "\nDate,Time\n" + time + "\n";
     if (request.absent) {
         csvContent += "Absent Students\n";
         for (let i = parseInt(request.start); i <= parseInt(request.end); i++) {
-            if (!data.includes(i.toString())) 
+            if (!data.includes(i.toString())) {
+                absent_no++;
                 csvContent += i.toString() + "\r\n";
-            
+            }
 
+            csvContent += "Absentees," + absent_no;
         }
     }
     if (request.present) {
         csvContent += "Present Students\n";
         data.forEach(function (e) {
+            present_no++;
             csvContent += e + "\r\n";
         });
+        csvContent += "Presrnt," + present_no;
     }
 
     var encodedUri = encodeURI(csvContent);
@@ -72,8 +79,9 @@ chrome.runtime.onMessage.addListener(function (request) {
     format = "";
     var msg_scrn = document.getElementsByClassName("NPEfkd RveJvd snByac");
     msg_scrn[4].click();
-    setTimeout(()=>{
-      findData(request);
-      saveAsCsv(processData(request), request);},1000);
-    
+    setTimeout(() => {
+        findData(request);
+        saveAsCsv(processData(request), request);
+    }, 1000);
+
 });
