@@ -1,2 +1,2 @@
 # attendance-marker
-Chrome Extension for Google Meet.
+ Chrome Extension for Google Meet.
