@@ -1,0 +1,19 @@
+{
+    "name":"Attendance-Marker",
+    "version":"1.0.0",
+    "manifest_version":2,
+    "default-locale":"en",
+    "description":"Attendance Marker for Google Meet.",
+    "content_scripts":[
+        {
+            "matches":["https://meet.google.com/*"],
+            "js":["content.js"]
+        }
+    ],
+    "browser_action":{
+        "default_popup":"popup.html",
+        "default_title":"attendance marker for Google Meet",
+        "default_icon" : "icon.png"
+    },
+    "permissions":["tabs","cookies"]
+}
