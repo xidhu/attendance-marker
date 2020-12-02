@@ -25,8 +25,7 @@ const isValid = (request) => {
 };
 
 const findData = (request) => {
-    var msg_scrn = document.getElementsByClassName("NPEfkd RveJvd snByac");
-    msg_scrn[4].click();
+    
     if (isValid(request)) {
         var msgs = document.getElementsByClassName("oIy2qc");
         dataset = [].slice.call(msgs).map((e) => {
@@ -71,8 +70,10 @@ chrome.runtime.onMessage.addListener(function (request) {
     dataset = "";
     roll_numbers = [];
     format = "";
-    findData(request);
+    var msg_scrn = document.getElementsByClassName("NPEfkd RveJvd snByac");
+    msg_scrn[4].click();
     setTimeout(()=>{
+      findData(request);
       saveAsCsv(processData(request), request);},1000);
     
 });
