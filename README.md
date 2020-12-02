@@ -12,6 +12,7 @@ Open Google Meet.
 * Take attendance that students typed in ChatBox whenever you wanted.
 
 **formatting**
+
 eg:
 
     // used to format the input %d indicates integer.
