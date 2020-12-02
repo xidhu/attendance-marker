@@ -63,7 +63,7 @@ const saveAsCsv = (data, request) => {
             present_no++;
             csvContent += e + "\r\n";
         });
-        csvContent += "Presrnt," + present_no;
+        csvContent += "Present," + present_no;
     }
 
     var encodedUri = encodeURI(csvContent);
