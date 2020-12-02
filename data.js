@@ -21,8 +21,6 @@ function getCookie(name) {
             return cookiePair[1];
         }
     }
-
-    // Return null if not found
     return null;
 }
 function setData(name, data) {
