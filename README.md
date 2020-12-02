@@ -9,7 +9,7 @@ Not familiar with how to create Chrome extensions? [Click here to read the docum
 Open Google Meet.
 
 * Open our extension.
-* Take attendance that students typed in ChatBox whenever you wanted.
+* Take attendance that students typed in ChatBox whenever you want.
 
 **formatting**
 
