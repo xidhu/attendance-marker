@@ -62,7 +62,7 @@ const saveAsCsv = (data,request) =>{
     var encodedUri = encodeURI(csvContent);
     var link = document.createElement("a");
     link.setAttribute("href", encodedUri);
-    link.setAttribute("download", "attendance.csv");
+    link.setAttribute("download", request.save+".csv");
     document.body.appendChild(link);
     link.click();
 }

@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     document.getElementById("det").value = options.details;
     document.getElementById("defaultChecked").checked = options.absent;
     document.getElementById("defaultChecked1").checked = options.present;
+    document.getElementById("save").value = options.save;
     }
     document.querySelector(".take_attendance").addEventListener('click',onClick,true);
     
@@ -16,6 +17,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     let last_rn = document.getElementById("end_roll").value;
     let format = document.getElementById("format").value;
     let details = document.getElementById("det").value;
+    let save = document.getElementById("save").value;
     let absent = document.getElementById("defaultChecked").checked;
     let present = document.getElementById("defaultChecked1").checked;
     let request = {
@@ -24,7 +26,8 @@ document.addEventListener('DOMContentLoaded',()=>{
         "format":format,
         "details":details,
         "absent":absent,
-        "present":present
+        "present":present,
+        "save":save,
     }
     setData("attendance_marker",request);
         chrome.tabs.query({currentWindow:true,active:true},function(tabs){

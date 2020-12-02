@@ -13,8 +13,7 @@
     "browser_action":{
         "default_popup":"popup.html",
         "default_title":"attendance marker for Google Meet",
-        "default_icon" : "icon.png",
-        "icons": {"256":"icon.png" }
+        "default_icon" : "icon.png"
     },
     "permissions":["tabs","cookies"]
 }
