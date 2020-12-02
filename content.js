@@ -56,7 +56,7 @@ const saveAsCsv = (data, request) => {
 
             
         }
-        csvContent += "Absentees," + absent_no;
+        csvContent += "Absentees," + absent_no+"\n";
     }
     if (request.present) {
         csvContent += "Present Students\n";
