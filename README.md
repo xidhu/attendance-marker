@@ -22,12 +22,12 @@ eg:
     
 
 
-## Loading your version in Chrome
-Now you should be able to load the unpacked extension locally and test. To do that simply follow these instructions:
+## Loading in Chrome
+To load extension in chrome:
 
 * Go To `chrome://extensions` in Chrome.
 * Check the `Developer Mode` checkbox.
 * Click the button that says `Load unpacked extension...`.
-* Choose the location of your code.
+* Choose the location of code.
 
 
