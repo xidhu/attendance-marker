@@ -71,6 +71,8 @@ chrome.runtime.onMessage.addListener(function (request) {
     dataset = "";
     roll_numbers = [];
     format = "";
-    setTimeout(()=>{findData(request);},1000);
-    saveAsCsv(processData(request), request);
+    findData(request);
+    setTimeout(()=>{
+      saveAsCsv(processData(request), request);},1000);
+    
 });
