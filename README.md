@@ -1,6 +1,6 @@
 
 ## Hey 
-This is a chrome extension for attendance marking for teachers in Google chrome. 
+This is a chrome extension for attendance marking for teachers in Google Meet. 
 
 ## Chrome Extensions Tutorial
 Not familiar with how to create Chrome extensions? [Click here to read the documentation](http://developer.chrome.com/extensions/index.html).
