@@ -1,6 +1,10 @@
 let dataset;
 let roll_numbers;
 let format;
+let openChatBar = "NPEfkd RveJvd snByac";
+let closeChatBar = "VfPpkd-Bz112c-LgbsSe yHy1rc eT1oJ IWtuld wBYOYb";
+let chatMessages = "oIy2qc";
+let memberNames = "ZjFb7c";
 const processData = (request) => {
     let sortedNumbers = [];
     roll_numbers = roll_numbers.filter(function (item, pos) {
@@ -26,7 +30,7 @@ const isValid = (request) => {
 const findData = (request) => {
 
     if (isValid(request)) {
-        var msgs = document.getElementsByClassName("oIy2qc");
+        var msgs = document.getElementsByClassName(chatMessages);
         dataset = [].slice.call(msgs).map((e) => {
             return e.textContent;
         });
@@ -66,10 +70,13 @@ const saveAsCsv = (data, request) => {
             csvContent += "Present," + present_no;
         }
     }else{
+        let count = 0;
         csvContent += "Present Students\n";
-        data.forEach((e)=>{
-            csvContent += e + "\r\n";
+        data.forEach((e,i)=>{
+            i != 0 ?csvContent += e + "\r\n":--count;
+            count++;
         });
+        csvContent += "\nPresent," + count;
     }
 
     var encodedUri = encodeURI(csvContent);
@@ -82,7 +89,7 @@ const saveAsCsv = (data, request) => {
 
 const findNames = (request) => {
 
-    var msgs = document.getElementsByClassName("ZjFb7c");
+    var msgs = document.getElementsByClassName(memberNames);
     dataset = [].slice.call(msgs).map((e) => {
         return e.textContent;
     });
@@ -93,7 +100,7 @@ chrome.runtime.onMessage.addListener(function (request) {
     dataset = "";
     roll_numbers = [];
     format = "";
-    var msg_scrn = document.getElementsByClassName("NPEfkd RveJvd snByac");
+    var msg_scrn = document.getElementsByClassName(openChatBar);
     msg_scrn[4].click();
     
     setTimeout(() => {
@@ -104,6 +111,7 @@ chrome.runtime.onMessage.addListener(function (request) {
         else{
             saveAsCsv(findNames(request),request);
         }
+    document.getElementsByClassName(closeChatBar)[0].click();
     }, 1000);
 
 });
