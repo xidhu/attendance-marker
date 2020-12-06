@@ -11,7 +11,15 @@ Not familiar with how to create Chrome extensions? [Click here to read the docum
 Open Google Meet.
 
 - Open our extension.
-- Take attendance that students typed in ChatBox whenever you want.
+ **Modes**
+ 
+   Chat Mode
+   
+    - Take attendance that students typed in ChatBox whenever you want.
+    
+   Live Mode
+   
+    - Take attendance as students present in the meeting.
 
 **formatting**
 
