@@ -22,7 +22,7 @@ Open Google Meet.
    
     - Take attendance as students present in the meeting.
 
-**formatting**
+**Formatting**
 
 eg:
 
