@@ -10,8 +10,6 @@ const processData = (request) => {
         if (parseFloat(request.start) <= parseFloat(e) && parseFloat(e) <= parseFloat(request.end)) 
             sortedNumbers.push(e);
         
-
-
     });
     return sortedNumbers.sort((a, b) => a - b);
 };
@@ -46,25 +44,32 @@ const saveAsCsv = (data, request) => {
     let present_no = 0;
     let absent_no = 0;
     let csvContent = "data:text/csv;charset=utf-8,Attendance\n" + request.details + "\nDate,Time\n" + time + "\n";
-    if (request.absent) {
-        csvContent += "Absent Students\n";
-        for (let i = parseInt(request.start); i <= parseInt(request.end); i++) {
-            if (!data.includes(i.toString())) {
-                absent_no++;
-                csvContent += i.toString() + "\r\n";
+    if(request.mode == 1){
+        if (request.absent) {
+            csvContent += "Absent Students\n";
+            for (let i = parseInt(request.start); i <= parseInt(request.end); i++) {
+                if (!data.includes(i.toString())) {
+                    absent_no++;
+                    csvContent += i.toString() + "\r\n";
+                }
+    
+                
             }
-
-            
+            csvContent += "Absentees," + absent_no+"\n";
         }
-        csvContent += "Absentees," + absent_no+"\n";
-    }
-    if (request.present) {
+        if (request.present) {
+            csvContent += "Present Students\n";
+            data.forEach(function (e) {
+                present_no++;
+                csvContent += e + "\r\n";
+            });
+            csvContent += "Present," + present_no;
+        }
+    }else{
         csvContent += "Present Students\n";
-        data.forEach(function (e) {
-            present_no++;
+        data.forEach((e)=>{
             csvContent += e + "\r\n";
         });
-        csvContent += "Present," + present_no;
     }
 
     var encodedUri = encodeURI(csvContent);
@@ -74,15 +79,31 @@ const saveAsCsv = (data, request) => {
     document.body.appendChild(link);
     link.click();
 };
+
+const findNames = (request) => {
+
+    var msgs = document.getElementsByClassName("ZjFb7c");
+    dataset = [].slice.call(msgs).map((e) => {
+        return e.textContent;
+    });
+    return dataset;
+};
+
 chrome.runtime.onMessage.addListener(function (request) {
     dataset = "";
     roll_numbers = [];
     format = "";
     var msg_scrn = document.getElementsByClassName("NPEfkd RveJvd snByac");
     msg_scrn[4].click();
+    
     setTimeout(() => {
-        findData(request);
-        saveAsCsv(processData(request), request);
+        if(request.mode == 1){
+            findData(request);
+            saveAsCsv(processData(request), request);
+        }
+        else{
+            saveAsCsv(findNames(request),request);
+        }
     }, 1000);
 
 });

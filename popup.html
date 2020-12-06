@@ -15,13 +15,20 @@
 
   <div class="input-box">
     <h6>Attendance Marker</h6>
-    <fieldset>
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text">Details</span>
-        </div>
-        <input value="Class" type="text" id="det" class="form-control ">
+    <br>
+    LiveMode
+    <label class="switch">
+      <input type="checkbox" id="mode_selector">
+      <span class="slider round"></span>
+    </label>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Details</span>
       </div>
+      <input value="Class" type="text" id="det" class="form-control ">
+    </div>
+    <div id="mode1">
+      
       <div class="input-group mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text">Starting Roll No</span>
@@ -40,12 +47,7 @@
         </div>
         <input value="%d" type="text" id="format" class="form-control">
       </div>
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text">Save As</span>
-        </div>
-        <input value="attendance" type="text" id="save" class="form-control">
-      </div>
+      
       <div class="custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" id="defaultChecked" checked>
         <label class="custom-control-label" for="defaultChecked">Absent Students</label>
@@ -54,12 +56,21 @@
         <input type="checkbox" class="custom-control-input" id="defaultChecked1">
         <label class="custom-control-label" for="defaultChecked1">Present Students</label>
       </div>
-
-
-    </fieldset><br>
-    <button type="button" class="btn btn-primary take_attendance">Take Attendance</button>
+    </div>
+    <br>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Save As</span>
+      </div>
+      <input value="attendance" type="text" id="save" class="form-control">
+    </div>
+    <div id="mode2">
+      LiveMode only count the students present in an instant.
+      </div><br>
+      <button type="button" class="btn btn-primary take_attendance">Take Attendance</button>
   </div>
-
+  
+  </div>
 </body>
 
 </html>
