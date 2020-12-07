@@ -1,6 +1,6 @@
 {
   "name": "Attendance-Marker",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "manifest_version": 2,
   "description": "Attendance Marker for Google Meet.",
   "content_scripts": [

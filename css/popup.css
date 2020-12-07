@@ -4,6 +4,12 @@ body {
   overflow: scroll;
 }
 
+.info{
+  margin: 10px;
+  font-size: x-small;
+  color: gray;
+}
+
 .input-box {
   margin: 10px;
 }
