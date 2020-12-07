@@ -82,11 +82,10 @@ const saveAsCsv = (data, request) => {
       data.forEach(function (e) {
         present_no++;
         let name;
-        names.forEach((nam)=>{
-          if(nam.rn == e)
-            name = nam.name;
+        names.forEach((nam) => {
+          if (nam.rn == e) name = nam.name;
         });
-        csvContent += e +","+name + "\r\n";
+        csvContent += e + "," + name + "\r\n";
       });
       csvContent += "Present," + present_no;
     }
