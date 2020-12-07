@@ -1,10 +1,11 @@
-let dataset;
+let names = [];
 let roll_numbers;
 let format;
 let openChatBar = "NPEfkd RveJvd snByac";
 let closeChatBar = "VfPpkd-Bz112c-LgbsSe yHy1rc eT1oJ IWtuld wBYOYb";
 let chatMessages = "oIy2qc";
 let memberNames = "ZjFb7c";
+let chatNames = "YTbUzc";
 const processData = (request) => {
   let sortedNumbers = [];
   roll_numbers = roll_numbers.filter(function (item, pos) {
@@ -32,10 +33,14 @@ const isValid = (request) => {
 const findData = (request) => {
   if (isValid(request)) {
     var msgs = document.getElementsByClassName(chatMessages);
-    dataset = [].slice.call(msgs).map((e) => {
+    var msgNames = document.getElementsByClassName(chatNames);
+    let dataset = [].slice.call(msgs).map((e) => {
       return e.textContent;
     });
-    dataset.forEach((e) => {
+    let nameSet = [].slice.call(msgNames).map((e) => {
+      return e.textContent;
+    });
+    dataset.forEach((e, i) => {
       let rest = e.substr(0, format).toLowerCase();
       let number = e.substr(format);
       if (
@@ -43,6 +48,10 @@ const findData = (request) => {
         request.format.substr(0, format).toLowerCase() == rest
       ) {
         roll_numbers.push(number);
+        names.push({
+          rn: number,
+          name: nameSet[i],
+        });
       }
     });
   }
@@ -72,7 +81,12 @@ const saveAsCsv = (data, request) => {
       csvContent += "Present Students\n";
       data.forEach(function (e) {
         present_no++;
-        csvContent += e + "\r\n";
+        let name;
+        names.forEach((nam)=>{
+          if(nam.rn == e)
+            name = nam.name;
+        });
+        csvContent += e +","+name + "\r\n";
       });
       csvContent += "Present," + present_no;
     }
