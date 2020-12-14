@@ -96,7 +96,7 @@ const saveAsCsv = (data, request) => {
     link.setAttribute("download", request.save + ".csv");
     document.body.appendChild(link);
     link.click();
-    document.body.removeChild(link);
+    
 };
 
 const findNames = (request) => {
