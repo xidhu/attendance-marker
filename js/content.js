@@ -3,7 +3,7 @@ let roll_numbers;
 let format;
 let openChatBar = "NPEfkd RveJvd snByac";
 let closeChatBar = "VfPpkd-Bz112c-LgbsSe yHy1rc eT1oJ IWtuld wBYOYb";
-let chatMessages = "oIy2qc";
+let chatMessages = "GDhqjd";
 let memberNames = "ZjFb7c";
 let chatNames = "YTbUzc";
 const processData = (request) => {
@@ -15,6 +15,7 @@ const processData = (request) => {
         if (parseFloat(request.start) <= parseFloat(e) && parseFloat(e) <= parseFloat(request.end)) 
             sortedNumbers.push(e);
         
+
 
     });
     return sortedNumbers.sort((a, b) => a - b);
@@ -34,7 +35,7 @@ const findData = (request) => {
         var msgs = document.getElementsByClassName(chatMessages);
         var msgNames = document.getElementsByClassName(chatNames);
         let dataset = [].slice.call(msgs).map((e) => {
-            return e.textContent;
+            return e.lastElementChild.firstElementChild.textContent;
         });
         let nameSet = [].slice.call(msgNames).map((e) => {
             return e.textContent;
@@ -42,7 +43,7 @@ const findData = (request) => {
         dataset.forEach((e, i) => {
             let rest = e.substr(0, format).toLowerCase();
             let number = e.substr(format);
-            if (!isNaN(number) && request.format.substr(0, format).toLowerCase() == rest) {
+            if (!isNaN(number) && request.format.substr(0, format).toLowerCase() === rest) {
                 roll_numbers.push(number);
                 names.push({rn: number, name: nameSet[i]});
             }
@@ -73,8 +74,6 @@ const saveAsCsv = (data, request) => {
                 names.forEach((nam) => {
                     if (nam.rn == e) 
                         name = nam.name;
-                    
-
                 });
                 csvContent += e + "," + name + "\r\n";
             });
@@ -96,7 +95,7 @@ const saveAsCsv = (data, request) => {
     link.setAttribute("download", request.save + ".csv");
     document.body.appendChild(link);
     link.click();
-    
+
 };
 
 const findNames = (request) => {
