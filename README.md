@@ -1,4 +1,4 @@
-## Hey
+## Attendace Marker
 
 This is a chrome extension for attendance marking for teachers in Google Meet.
 
@@ -11,12 +11,14 @@ Not familiar with how to create Chrome extensions? [Click here to read the docum
 Open Google Meet.
 
 - Open our extension.
+- Click take attendance either in chat mode or Live mode
+- Attendance will be downloaded in default download folder.
 
  **Modes**
  
    Chat Mode
    
-    - Take attendance that students typed in ChatBox whenever you want.
+    - Take attendance that students typed in ChatBox.
     
    Live Mode
    
