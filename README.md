@@ -1,6 +1,6 @@
 ## Attendace Marker
 
-This is a chrome extension for attendance marking for teachers in Google Meet.
+This is a chrome extension for attendance marking in Google Meet.
 
 ## Chrome Extensions Tutorial
 
