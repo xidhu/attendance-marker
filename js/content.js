@@ -1,11 +1,11 @@
 let names = [];
 let roll_numbers;
 let format;
-let openChatBar = "NPEfkd RveJvd snByac";
-let closeChatBar = "VfPpkd-Bz112c-LgbsSe yHy1rc eT1oJ IWtuld wBYOYb";
-let chatMessages = "GDhqjd";
-let memberNames = "ZjFb7c";
-let chatNames = "YTbUzc";
+let openChatBar = "/html/body/div[1]/c-wiz/div[1]/div/div[9]/div[3]/div[1]/div[3]/div/div[2]/div[3]/span/span";
+let closeChatBar = "/html/body/div[1]/c-wiz/div[1]/div/div[9]/div[3]/div[4]/div/div[2]/div[1]/div[2]/div/span/button/i"
+let chatMessages = "/html/body/div[1]/c-wiz/div[1]/div/div[9]/div[3]/div[4]/div/div[2]/div[2]/div[2]/span[2]/div/div[2]";
+let chatNames = "/html/body/div[1]/c-wiz/div[1]/div/div[9]/div[3]/div[4]/div/div[2]/div[2]/div[2]/span[1]/div[3]/div[2]/div";
+
 const processData = (request) => {
     let sortedNumbers = [];
     roll_numbers = roll_numbers.filter(function (item, pos) {
@@ -32,13 +32,12 @@ const isValid = (request) => {
 
 const findData = (request) => {
     if (isValid(request)) {
-        var msgs = document.getElementsByClassName(chatMessages);
-        var msgNames = document.getElementsByClassName(chatNames);
+        var msgs = getElementByXpath(chatMessages).children;
         let dataset = [].slice.call(msgs).map((e) => {
             return e.lastElementChild.firstElementChild.textContent;
         });
-        let nameSet = [].slice.call(msgNames).map((e) => {
-            return e.textContent;
+        let nameSet = [].slice.call(msgs).map((e) => {
+            return e.firstElementChild.firstElementChild.textContent;
         });
         dataset.forEach((e, i) => {
             let rest = e.substr(0, format).toLowerCase();
@@ -99,9 +98,9 @@ const saveAsCsv = (data, request) => {
 };
 
 const findNames = (request) => {
-    var msgs = document.getElementsByClassName(memberNames);
-    dataset = [].slice.call(msgs).map((e) => {
-        return e.textContent;
+    var msgs = getElementByXpath(chatNames).children;
+    let dataset = [].slice.call(msgs).map((e) => {
+        return e.firstElementChild.lastElementChild.textContent;
     });
     return dataset;
 };
@@ -110,9 +109,7 @@ chrome.runtime.onMessage.addListener(function (request) {
     dataset = "";
     roll_numbers = [];
     format = "";
-    var msg_scrn = document.getElementsByClassName(openChatBar);
-    msg_scrn[4].click();
-
+    getElementByXpath(openChatBar).click();
     setTimeout(() => {
         if (request.mode == 1) {
             findData(request);
@@ -120,6 +117,13 @@ chrome.runtime.onMessage.addListener(function (request) {
         } else {
             saveAsCsv(findNames(request), request);
         }
-        document.getElementsByClassName(closeChatBar)[0].click();
+        getElementByXpath(closeChatBar).click()
     }, 1000);
 });
+
+function getElementByXpath(path) {
+    return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+  }
+
+
+
