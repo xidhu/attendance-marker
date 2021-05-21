@@ -10,7 +10,7 @@ Not familiar with how to create Chrome extensions? [Click here to read the docum
 
 Open Google Meet.
 
-- Open our extension.
+- Open extension.
 - Click take attendance either from in chat mode or Live mode
 - Attendance will be downloaded on default download folder.
 
@@ -18,11 +18,11 @@ Open Google Meet.
  
    Chat Mode
    
-    - Takes attendance when students type their roll no in ChatBox.
+    - Takes attendance as the roll numbers typed by students.
     
    Live Mode
    
-    - Takes attendance live from the meeting.
+    - Takes attendance live from the meeting as usernames of students present in that time.
 
 **Formatting**
 
