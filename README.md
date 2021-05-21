@@ -12,7 +12,7 @@ Open Google Meet.
 
 - Open our extension.
 - Click take attendance either in chat mode or Live mode
-- Attendance will be downloaded in default download folder.
+- Attendance will be downloaded on default download folder.
 
  **Modes**
  
