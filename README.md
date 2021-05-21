@@ -18,11 +18,11 @@ Open Google Meet.
  
    Chat Mode
    
-    - Take attendance when students type their roll no in ChatBox.
+    - Takes attendance when students type their roll no in ChatBox.
     
    Live Mode
    
-    - Take attendance live from the meeting.
+    - Takes attendance live from the meeting.
 
 **Formatting**
 
