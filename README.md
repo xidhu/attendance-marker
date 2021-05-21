@@ -28,7 +28,7 @@ Open Google Meet.
 
 eg:
 
-    // used to format the input %d indicates integer.
+    '%d' -> integer formatting 
     roll no %d => roll no 45
     %d  => 45
     rn%d   => rn45
