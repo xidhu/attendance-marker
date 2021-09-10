@@ -1,4 +1,4 @@
-## Attendace Marker
+## Attendance Marker
 
 This is a chrome extension for attendance marking in Google Meet.
 
