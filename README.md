@@ -11,7 +11,8 @@ Not familiar with how to create Chrome extensions? [Click here to read the docum
 Open Google Meet.
 
 - Open extension.
-- Click take attendance either from in chat mode or Live mode
+- Select Live Mode or Chat Mode(If chat mode is selected then specify the roll no input format.)
+- Click take attendance.
 - Attendance will be downloaded on default download folder.
 
  **Modes**
