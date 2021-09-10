@@ -19,11 +19,11 @@ Open Google Meet.
  
    Chat Mode
    
-    - Takes attendance as the roll numbers typed by students.
+    - Records Roll numbers typed by students.
     
    Live Mode
    
-    - Takes attendance live from the meeting as usernames of students present in that time.
+    - Take attendance live from the meeting as usernames of students present in that time.
 
 **Formatting**
 
